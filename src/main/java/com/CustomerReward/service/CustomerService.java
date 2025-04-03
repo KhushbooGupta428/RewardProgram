@@ -49,5 +49,4 @@ public class CustomerService {
         }
         return monthlyPoints;
     }
-
 }

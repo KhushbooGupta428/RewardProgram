@@ -37,6 +37,15 @@ public class Transaction {
         this.date = date;
     }
 
+
+    public Transaction(Long id, Long customerId, Double amount, LocalDate date) {
+        this.id = id;
+        this.customerId = customerId;
+        this.amount = amount;
+        this.date = date;
+    }
+
+
     public Long getId() {
         return id;
     }
