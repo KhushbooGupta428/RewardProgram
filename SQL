@@ -1,0 +1,14 @@
+INSERT INTO Transaction (customer_Id, amount, date) VALUES (1, 120.0, '2025-01-15');
+INSERT INTO Transaction (customer_Id, amount, date) VALUES (1, 75.0, '2025-01-20');
+INSERT INTO Transaction (customer_Id, amount, date) VALUES (1, 200.0, '2025-02-10');
+INSERT INTO Transaction (customer_Id, amount, date) VALUES (1, 50.0, '2025-02-25');
+INSERT INTO Transaction (customer_Id, amount, date) VALUES (1, 150.0, '2025-03-05');
+INSERT INTO Transaction (customer_Id, amount, date) VALUES (2, 80.0, '2025-01-18');
+INSERT INTO Transaction (customer_Id, amount, date) VALUES (2, 110.0, '2025-02-12');
+INSERT INTO Transaction (customer_Id, amount, date) VALUES (2, 95.0, '2025-03-22');
+
+INSERT INTO Customer (id, name, email) VALUES (1, 'John Doe', 'john.doe@example.com');
+INSERT INTO Customer (id, name, email) VALUES (2, 'Jane Smith', 'jane.smith@example.com');
+
+http://localhost:8080/api/v1?customerId=1&startDate=2025-01-01&endDate=2025-03-31 // With particular customer
+http://localhost:8080/api/v1?startDate=2025-01-01&endDate=2025-03-31 // For All customer
