@@ -20,7 +20,7 @@ import com.CustomerReward.model.Customer;
  * Controller for handling reward-related requests.
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class CustomerController {
 
     @Autowired
@@ -29,7 +29,7 @@ public class CustomerController {
     @Autowired
     private  CustomerRepository customerRepository;
 
-    @GetMapping("/v1")
+    @GetMapping("/rewards")
     public ResponseEntity<List<CustomerReward>> getMonthlyPoints(
             @RequestParam(required = false) Long customerId,
             @RequestParam String startDate,
