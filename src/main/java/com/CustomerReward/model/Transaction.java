@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 /**
- * Entity representing a transaction made by a customer
+ * Entity representing a transaction made by a customer.
  */
 
 @Entity
@@ -26,8 +26,7 @@ public class Transaction {
     private Double amount;
     private LocalDate date;
 
-    public Transaction(Long id, Long customerId, Double amount, LocalDate date) {
-        this.id = id;
+    public Transaction(Long customerId, Double amount, LocalDate date) {
         this.customerId = customerId;
         this.amount = amount;
         this.date = date;
