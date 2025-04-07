@@ -1,4 +1,4 @@
-package com.CustomerReward.exception;
+package com.customerreward.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

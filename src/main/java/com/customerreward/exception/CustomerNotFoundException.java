@@ -1,4 +1,4 @@
-package com.CustomerReward.exception;
+package com.customerreward.exception;
 
  /* Exception thrown when a customer is not found.*/
 

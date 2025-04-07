@@ -1,20 +1,20 @@
-package com.CustomerReward.customerController;
+package com.customerreward.customerController;
 
 
-import com.CustomerReward.dto.CustomerReward;
-import com.CustomerReward.dto.RewardPoints;
-import com.CustomerReward.exception.CustomerNotFoundException;
-import com.CustomerReward.repository.CustomerRepository;
-import com.CustomerReward.service.CustomerServiceInt;
+import com.customerreward.dto.CustomerReward;
+import com.customerreward.dto.RewardPoints;
+import com.customerreward.exception.CustomerNotFoundException;
+import com.customerreward.repository.CustomerRepository;
+import com.customerreward.service.CustomerServiceInt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.CustomerReward.service.CustomerService;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import com.CustomerReward.model.Customer;
+import com.customerreward.model.Customer;
 
 
 /**

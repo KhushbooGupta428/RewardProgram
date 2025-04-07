@@ -1,8 +1,7 @@
-package com.CustomerReward.service;
+package com.customerreward.service;
 
-import com.CustomerReward.dto.RewardPoints;
-import com.CustomerReward.model.Transaction;
-import com.CustomerReward.repository.TransactionRepository;
+import com.customerreward.model.Transaction;
+import com.customerreward.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 
 /**

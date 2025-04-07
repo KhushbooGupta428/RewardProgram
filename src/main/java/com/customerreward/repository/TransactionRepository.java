@@ -1,6 +1,6 @@
-package com.CustomerReward.repository;
+package com.customerreward.repository;
 
-import com.CustomerReward.model.Transaction;
+import com.customerreward.model.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.time.LocalDate;

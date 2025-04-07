@@ -1,11 +1,10 @@
-package com.CustomerReward;
+package com.customerreward;
 
-import com.CustomerReward.model.Customer;
-import com.CustomerReward.model.Transaction;
+import com.customerreward.model.Customer;
+import com.customerreward.model.Transaction;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -20,7 +19,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import com.CustomerReward.repository.*;
+import com.customerreward.repository.*;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**

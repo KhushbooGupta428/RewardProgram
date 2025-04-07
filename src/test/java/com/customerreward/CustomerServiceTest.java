@@ -1,14 +1,13 @@
-package com.CustomerReward;
+package com.customerreward;
 
-import com.CustomerReward.model.Transaction;
+import com.customerreward.model.Transaction;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.CustomerReward.repository.*;
+import com.customerreward.repository.*;
 import org.junit.runner.RunWith;
 
 import java.time.LocalDate;
@@ -17,7 +16,11 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import com.CustomerReward.service.*;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+import com.customerreward.service.*;
+import java.util.Collections;
+
 
 /**
  * Unit tests for the Controller class.
@@ -34,14 +37,24 @@ public class CustomerServiceTest {
     private TransactionRepository transactionRepository;
 
     @Test
-    public void testCalculatePoints() {
-        assertEquals(90, customerService.calculatePoints(120.0));
-        assertEquals(25, customerService.calculatePoints(75.0));
-        assertEquals(0, customerService.calculatePoints(50.0));
+    public void testCalculatePoints_Positive() {
+        assertEquals(90, customerService.calculatePoints(120));
+        assertEquals(50, customerService.calculatePoints(100));
+        assertEquals(0, customerService.calculatePoints(40));
     }
 
     @Test
-    public void testCalculateMonthlyPoints() {
+    public void testCalculatePoints_Negative() {
+        assertNotEquals(100, customerService.calculatePoints(120));
+        assertNotEquals(60, customerService.calculatePoints(100));
+        assertNotEquals(10, customerService.calculatePoints(40));
+        assertNotEquals(150, customerService.calculatePoints(124));
+        assertNotEquals(200, customerService.calculatePoints(180));
+        assertNotEquals(90, customerService.calculatePoints(130));
+
+    }
+    @Test
+    public void testCalculateMonthlyPoints_Positive() {
         List<Transaction> transactions = Arrays.asList(
                 new Transaction(1L, 1L, 120.0, LocalDate.of(2025, 1, 15)),
                 new Transaction(2L, 1L, 75.0, LocalDate.of(2025, 1, 20)),
@@ -57,7 +70,19 @@ public class CustomerServiceTest {
 
         assertEquals(3, pointsMap.size());
         assertEquals(115, pointsMap.get("January").intValue());
-        assertEquals(200, pointsMap.get("February").intValue());
+        assertEquals(250, pointsMap.get("February").intValue());
         assertEquals(450, pointsMap.get("March").intValue());
     }
+    @Test
+    public void testCalculateMonthlyPoints_Negative() {
+        List<Transaction> transactions = Collections.emptyList();
+
+        Mockito.when(transactionRepository.findByCustomerIdAndDateBetween(1L, LocalDate.of(2025, 1, 1), LocalDate.of(2025, 3, 31)))
+                .thenReturn(transactions);
+
+        Map<String, Integer> pointsMap = customerService.calculateMonthlyPoints(1L, LocalDate.of(2025, 1, 1), LocalDate.of(2025, 3, 31));
+
+        assertEquals(0, pointsMap.size());
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.CustomerReward.service;
+package com.customerreward.service;
 
 import java.time.LocalDate;
 import java.util.Map;
