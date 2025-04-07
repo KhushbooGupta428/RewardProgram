@@ -19,11 +19,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import com.CustomerReward.repository.*;
+import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * Integration tests for the RewardController class.
  */
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class RewardControllerTest {
 
@@ -44,20 +45,20 @@ public class RewardControllerTest {
         when(customerRepository.save(any(Customer.class))).thenReturn(customer1, customer2);
 
         when(transactionRepository.save(any(Transaction.class))).thenReturn(
-                new Transaction(1L, 120.0, LocalDate.of(2025, 1, 15)),
-                new Transaction(1L, 75.0, LocalDate.of(2025, 1, 20)),
-                new Transaction(1L, 200.0, LocalDate.of(2025, 2, 10)),
-                new Transaction(1L, 50.0, LocalDate.of(2025, 2, 25)),
-                new Transaction(1L, 150.0, LocalDate.of(2025, 3, 5)),
-                new Transaction(2L, 80.0, LocalDate.of(2025, 1, 18)),
-                new Transaction(2L, 110.0, LocalDate.of(2025, 2, 12)),
-                new Transaction(2L, 95.0, LocalDate.of(2025, 3, 22))
+                new Transaction(1L, 1L, 120.0, LocalDate.of(2025, 1, 15)),
+                new Transaction(2L, 1L, 75.0, LocalDate.of(2025, 1, 20)),
+                new Transaction(3L, 1L, 200.0, LocalDate.of(2025, 2, 10)),
+                new Transaction(4L, 1L, 50.0, LocalDate.of(2025, 2, 25)),
+                new Transaction(5L, 1L, 150.0, LocalDate.of(2025, 3, 5)),
+                new Transaction(6L, 2L, 80.0, LocalDate.of(2025, 1, 18)),
+                new Transaction(7L, 2L, 110.0, LocalDate.of(2025, 2, 12)),
+                new Transaction(8L, 2L, 95.0, LocalDate.of(2025, 3, 22))
         );
     }
 
     @Test
     public void testGetMonthlyPointsForSpecificCustomer() {
-        ResponseEntity<List> response = restTemplate.getForEntity("/api/v1?customerId=1&startDate=2025-01-01&endDate=2025-03-31", List.class);
+        ResponseEntity<List> response = restTemplate.getForEntity("/api/v1/rewards?customerId=1&startDate=2025-01-01&endDate=2025-03-31", List.class);
         assertEquals(200, response.getStatusCode().value());
         assertNotNull(response.getBody());
         assertEquals(1, response.getBody().size());
@@ -65,7 +66,7 @@ public class RewardControllerTest {
 
     @Test
     public void testGetMonthlyPointsForAllCustomers() {
-        ResponseEntity<List> response = restTemplate.getForEntity("/api/v1?startDate=2025-01-01&endDate=2025-03-31", List.class);
+        ResponseEntity<List> response = restTemplate.getForEntity("/api/v1/rewards?startDate=2025-01-01&endDate=2025-03-31", List.class);
         assertEquals(200, response.getStatusCode().value());
         assertNotNull(response.getBody());
         assertEquals(2, response.getBody().size());
@@ -73,8 +74,9 @@ public class RewardControllerTest {
 
     @Test
     public void testGetMonthlyPointsCustomerNotFound() {
-        ResponseEntity<String> response = restTemplate.getForEntity("/api/v1?customerId=999&startDate=2025-01-01&endDate=2025-03-31", String.class);
+        ResponseEntity<String> response = restTemplate.getForEntity("/api/v1/rewards?customerId=999&startDate=2025-01-01&endDate=2025-03-31", String.class);
         assertEquals(404, response.getStatusCode().value());
         assertTrue(response.getBody().contains("Customer with ID 999 not found."));
     }
+
 }

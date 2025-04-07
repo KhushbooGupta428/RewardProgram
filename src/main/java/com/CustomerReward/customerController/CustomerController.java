@@ -5,6 +5,7 @@ import com.CustomerReward.dto.CustomerReward;
 import com.CustomerReward.dto.RewardPoints;
 import com.CustomerReward.exception.CustomerNotFoundException;
 import com.CustomerReward.repository.CustomerRepository;
+import com.CustomerReward.service.CustomerServiceInt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ import com.CustomerReward.model.Customer;
 public class CustomerController {
 
     @Autowired
-    private CustomerService customerService;
+    private CustomerServiceInt customerService;
 
     @Autowired
     private  CustomerRepository customerRepository;

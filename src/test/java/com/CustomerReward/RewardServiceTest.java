@@ -14,17 +14,19 @@ public class RewardServiceTest {
     @Test
     public void testCalculatePoints_Positive() {
         // Test case where points are calculated correctly for various amounts
-        assertEquals(90, rewardService.calculatePoints(120)); // Amount above threshold
-        assertEquals(50, rewardService.calculatePoints(100)); // Amount exactly at threshold
-        assertEquals(0, rewardService.calculatePoints(40));  // Amount below threshold
+        assertEquals(90, rewardService.calculatePoints(120));
+        assertEquals(50, rewardService.calculatePoints(100));
+        assertEquals(0, rewardService.calculatePoints(40));
     }
 
     @Test
     public void testCalculatePoints_Negative() {
         // Test case where points calculation might be incorrect or edge cases
-        assertNotEquals(100, rewardService.calculatePoints(120)); // Incorrect expected points
-        assertNotEquals(60, rewardService.calculatePoints(100));  // Incorrect expected points
-        assertNotEquals(10, rewardService.calculatePoints(40));   // Incorrect expected points
+        assertNotEquals(100, rewardService.calculatePoints(120));
+        assertNotEquals(60, rewardService.calculatePoints(100));
+        assertNotEquals(10, rewardService.calculatePoints(40));
+        assertNotEquals(150, rewardService.calculatePoints(124));
+
     }
 
 
