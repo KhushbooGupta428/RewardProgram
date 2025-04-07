@@ -19,5 +19,4 @@ public class RewardPoints {
 
     private String month;
     private int points;
-
 }
