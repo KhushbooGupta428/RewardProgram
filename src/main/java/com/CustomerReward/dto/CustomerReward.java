@@ -21,5 +21,4 @@ public class CustomerReward {
     private List<RewardPoints> rewardPointsList;
     private int totalPoints;
 
-
 }

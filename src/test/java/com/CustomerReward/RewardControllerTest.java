@@ -13,7 +13,9 @@ import org.mockito.Mock;
 import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -78,5 +80,17 @@ public class RewardControllerTest {
         assertEquals(404, response.getStatusCode().value());
         assertTrue(response.getBody().contains("Customer with ID 999 not found."));
     }
+
+    @Test
+    public void testGetMonthlyPointsNoTransactions() {
+        when(transactionRepository.findByCustomerIdAndDateBetween(1L, LocalDate.of(2025, 1, 1), LocalDate.of(2025, 3, 31)))
+                .thenReturn(Collections.emptyList());
+
+        ResponseEntity<List> response = restTemplate.getForEntity("/api/v1/rewards?customerId=1&startDate=2025-01-01&endDate=2025-03-31", List.class);
+        assertEquals(200, response.getStatusCode().value());
+        assertNotNull(response.getBody());
+        assertTrue(response.getBody().isEmpty());
+    }
+
 
 }

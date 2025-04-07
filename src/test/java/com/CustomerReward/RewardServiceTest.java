@@ -17,6 +17,8 @@ public class RewardServiceTest {
         assertEquals(90, rewardService.calculatePoints(120));
         assertEquals(50, rewardService.calculatePoints(100));
         assertEquals(0, rewardService.calculatePoints(40));
+        assertEquals(150, rewardService.calculatePoints(200));
+        assertEquals(75, rewardService.calculatePoints(150));
     }
 
     @Test
@@ -26,6 +28,9 @@ public class RewardServiceTest {
         assertNotEquals(60, rewardService.calculatePoints(100));
         assertNotEquals(10, rewardService.calculatePoints(40));
         assertNotEquals(150, rewardService.calculatePoints(124));
+        assertNotEquals(200, rewardService.calculatePoints(180));
+        assertNotEquals(90, rewardService.calculatePoints(130));
+
 
     }
 

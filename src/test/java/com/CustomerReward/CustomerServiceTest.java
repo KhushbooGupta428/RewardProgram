@@ -46,7 +46,8 @@ public class CustomerServiceTest {
                 new Transaction(1L, 1L, 120.0, LocalDate.of(2025, 1, 15)),
                 new Transaction(2L, 1L, 75.0, LocalDate.of(2025, 1, 20)),
                 new Transaction(3L, 1L, 200.0, LocalDate.of(2025, 2, 10)),
-                new Transaction(4L, 1L, 50.0, LocalDate.of(2025, 2, 25))
+                new Transaction(4L, 1L, 50.0, LocalDate.of(2025, 2, 25)),
+                new Transaction(5L, 1L, 300.0, LocalDate.of(2025, 3, 5))
         );
 
         Mockito.when(transactionRepository.findByCustomerIdAndDateBetween(1L, LocalDate.of(2025, 1, 1), LocalDate.of(2025, 3, 31)))
@@ -54,9 +55,9 @@ public class CustomerServiceTest {
 
         Map<String, Integer> pointsMap = customerService.calculateMonthlyPoints(1L, LocalDate.of(2025, 1, 1), LocalDate.of(2025, 3, 31));
 
-        assertEquals(2, pointsMap.size());
+        assertEquals(3, pointsMap.size());
         assertEquals(115, pointsMap.get("January").intValue());
         assertEquals(200, pointsMap.get("February").intValue());
-
+        assertEquals(450, pointsMap.get("March").intValue());
     }
 }
