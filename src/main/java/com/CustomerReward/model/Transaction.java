@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 /**
- * Entity representing a transaction made by a customer.
+ * Entity representing a transaction made by a customer
  */
 
 @Entity

@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.CustomerReward.service.*;
 
 /**
- * Unit tests for the Controller class.
+ * Unit tests for the Controller class..
  */
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest

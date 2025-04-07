@@ -18,7 +18,7 @@ import com.CustomerReward.model.Customer;
 
 
 /**
-  Controller for handling reward-related requests.
+ * Controller for handling reward-related requests.
  */
 @RestController
 @RequestMapping("/api/v1")

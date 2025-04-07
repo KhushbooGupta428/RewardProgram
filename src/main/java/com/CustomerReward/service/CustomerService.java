@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 
 /**
- Service for calculating reward points based on transactions.
+ * Service for calculating reward points based on transactions.
  */
 @Service
 public class CustomerService  implements CustomerServiceInt{
