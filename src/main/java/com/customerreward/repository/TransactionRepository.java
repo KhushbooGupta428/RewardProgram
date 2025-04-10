@@ -8,7 +8,6 @@ import java.util.List;
 
 /* Repository interface for accessing transaction data.
  */
-
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction,Long> {
 

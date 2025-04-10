@@ -25,7 +25,6 @@ public class CustomerService  implements CustomerServiceInt{
     /**
      * Calculates reward points based on the transaction amount.
      */
-
     public int calculatePoints(double amount) {
         int points = 0;
         if (amount > 100) {
@@ -37,7 +36,6 @@ public class CustomerService  implements CustomerServiceInt{
         }
         return points;
     }
-
     public Map<String, Integer> calculateMonthlyPoints(Long customerId, LocalDate startDate, LocalDate endDate) {
         List<Transaction> transactions = transactionRepository.findByCustomerIdAndDateBetween(customerId, startDate, endDate);
         Map<String, Integer> monthlyPoints = new HashMap<>();

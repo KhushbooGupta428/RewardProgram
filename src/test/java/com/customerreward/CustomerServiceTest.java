@@ -7,18 +7,16 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.customerreward.repository.*;
+import com.customerreward.repository.TransactionRepository;
 import org.junit.runner.RunWith;
 
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
-import com.customerreward.service.*;
+import com.customerreward.service.CustomerService;
 import java.util.Collections;
 
 
@@ -28,7 +26,6 @@ import java.util.Collections;
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
 public class CustomerServiceTest {
-
 
     @InjectMocks
     private CustomerService customerService;

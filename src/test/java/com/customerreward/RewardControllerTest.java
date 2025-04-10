@@ -90,6 +90,4 @@ public class RewardControllerTest {
         assertNotNull(response.getBody());
         assertTrue(response.getBody().isEmpty());
     }
-
-
 }

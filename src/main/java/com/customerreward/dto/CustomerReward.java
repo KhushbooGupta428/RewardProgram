@@ -4,7 +4,6 @@ import java.util.List;
 
  /* Model representing reward points and total point for a customer*/
 
-
 public class CustomerReward {
 
     private Long customerId;
@@ -14,7 +13,7 @@ public class CustomerReward {
       public CustomerReward() {
         }
 
-         public CustomerReward(Long customerId, List<RewardPoints> rewardPointsList, int totalPoints) {
+        public CustomerReward(Long customerId, List<RewardPoints> rewardPointsList, int totalPoints) {
             this.customerId = customerId;
             this.rewardPointsList = rewardPointsList;
             this.totalPoints = totalPoints;

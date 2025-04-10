@@ -1,7 +1,10 @@
 package com.customerreward.model;
 
-import jakarta.persistence.*;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Customer {
@@ -12,18 +15,15 @@ public class Customer {
     private String name;
     private String email;
 
-    // No-argument constructor
     public Customer() {
     }
 
-    // All-argument constructor
     public Customer(Long id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

@@ -13,7 +13,6 @@ public class RewardPoints {
 
     public RewardPoints() {
     }
-
     public RewardPoints(String month, int points) {
         this.month = month;
         this.points = points;
