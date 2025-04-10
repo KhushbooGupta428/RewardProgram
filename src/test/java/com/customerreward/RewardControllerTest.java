@@ -2,6 +2,8 @@ package com.customerreward;
 
 import com.customerreward.model.Customer;
 import com.customerreward.model.Transaction;
+import com.customerreward.repository.CustomerRepository;
+import com.customerreward.repository.TransactionRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,16 +12,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.mockito.Mock;
 import org.springframework.http.ResponseEntity;
-
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
-
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
-import com.customerreward.repository.*;
+import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**

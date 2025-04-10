@@ -54,7 +54,6 @@ public class CustomerController {
                     .map(customer -> calculateCustomerReward(customer.getId(), start, end))
                     .collect(Collectors.toList());
         }
-
         return ResponseEntity.ok(customerRewards);
     }
 

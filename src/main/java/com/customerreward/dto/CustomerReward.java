@@ -35,11 +35,11 @@ public class CustomerReward {
             this.rewardPointsList = rewardPointsList;
         }
 
-    public int getTotalPoints() {
+        public int getTotalPoints() {
         return totalPoints;
     }
 
-    public void setTotalPoints(int totalPoints) {
+        public void setTotalPoints(int totalPoints) {
         this.totalPoints = totalPoints;
     }
 }
