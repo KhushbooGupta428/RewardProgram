@@ -1,10 +1,11 @@
-package com.CustomerReward.repository;
+package com.customerreward.repository;
 
-import com.CustomerReward.model.Customer;
+import com.customerreward.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
+/* Repository interface for link Customer entities.*/
+ @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 }
 

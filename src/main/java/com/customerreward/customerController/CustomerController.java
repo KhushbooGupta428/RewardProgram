@@ -1,35 +1,37 @@
-package com.CustomerReward.customerController;
+package com.customerreward.customerController;
 
-
-import com.CustomerReward.dto.CustomerReward;
-import com.CustomerReward.dto.RewardPoints;
-import com.CustomerReward.exception.CustomerNotFoundException;
-import com.CustomerReward.repository.CustomerRepository;
+import com.customerreward.dto.CustomerReward;
+import com.customerreward.dto.RewardPoints;
+import com.customerreward.exception.CustomerNotFoundException;
+import com.customerreward.repository.CustomerRepository;
+import com.customerreward.service.CustomerServiceInt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import com.CustomerReward.service.CustomerService;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import com.CustomerReward.model.Customer;
+import com.customerreward.model.Customer;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 
 /**
- * Controller for handling reward-related requests.
+  Controller for handling reward-related requests.
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class CustomerController {
 
     @Autowired
-    private CustomerService customerService;
+    private CustomerServiceInt customerService;
 
     @Autowired
     private  CustomerRepository customerRepository;
 
-    @GetMapping("/v1")
+    @GetMapping("/rewards")
     public ResponseEntity<List<CustomerReward>> getMonthlyPoints(
             @RequestParam(required = false) Long customerId,
             @RequestParam String startDate,
@@ -52,10 +54,8 @@ public class CustomerController {
                     .map(customer -> calculateCustomerReward(customer.getId(), start, end))
                     .collect(Collectors.toList());
         }
-
         return ResponseEntity.ok(customerRewards);
     }
-
     private CustomerReward calculateCustomerReward(Long customerId, LocalDate start, LocalDate end) {
         Map<String, Integer> pointsMap = customerService.calculateMonthlyPoints(customerId, start, end);
 

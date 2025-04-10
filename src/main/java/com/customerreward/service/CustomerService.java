@@ -1,24 +1,20 @@
-package com.CustomerReward.service;
+package com.customerreward.service;
 
-import com.CustomerReward.dto.RewardPoints;
-import com.CustomerReward.model.Transaction;
-import com.CustomerReward.repository.TransactionRepository;
+import com.customerreward.model.Transaction;
+import com.customerreward.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.*;
+import java.time.LocalDate;
 import java.time.format.TextStyle;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.stream.Collectors;
-import java.util.*;
-
+import java.util.Map;
 /**
- * Service for calculating reward points based on transactions.
+ * Service for calculating reward points based on transactions
  */
-
 @Service
-public class CustomerService {
+public class CustomerService  implements CustomerServiceInt{
 
     @Autowired
     private TransactionRepository transactionRepository;
@@ -26,7 +22,6 @@ public class CustomerService {
     /**
      * Calculates reward points based on the transaction amount.
      */
-
     public int calculatePoints(double amount) {
         int points = 0;
         if (amount > 100) {
@@ -38,7 +33,6 @@ public class CustomerService {
         }
         return points;
     }
-
     public Map<String, Integer> calculateMonthlyPoints(Long customerId, LocalDate startDate, LocalDate endDate) {
         List<Transaction> transactions = transactionRepository.findByCustomerIdAndDateBetween(customerId, startDate, endDate);
         Map<String, Integer> monthlyPoints = new HashMap<>();

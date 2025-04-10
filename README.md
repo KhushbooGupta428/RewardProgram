@@ -25,7 +25,6 @@ The project is structured as follows:
 ### Prerequisites
 - Java 11 or higher
 - Maven
-
 - URL: http://localhost:8080/api/v1/rewards?startDate=2025-01-01&endDate=2025-03-31
 - http://localhost:8080/api/v1/rewards?startDate=2025-01-01&endDate=2025-03-31
 Method: GET

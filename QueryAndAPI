@@ -10,5 +10,5 @@ INSERT INTO Transaction (customer_Id, amount, date) VALUES (2, 95.0, '2025-03-22
 INSERT INTO Customer (id, name, email) VALUES (1, 'John Doe', 'john.doe@example.com');
 INSERT INTO Customer (id, name, email) VALUES (2, 'Jane Smith', 'jane.smith@example.com');
 
-http://localhost:8080/api/v1?customerId=1&startDate=2025-01-01&endDate=2025-03-31 // With particular customer
-http://localhost:8080/api/v1?startDate=2025-01-01&endDate=2025-03-31 // For All customer
+http://localhost:8080/api/v1/rewards?startDate=2025-01-01&endDate=2025-03-31
+http://localhost:8080/api/v1/rewards?customerId=1&startDate=2025-01-01&endDate=2025-03-31
