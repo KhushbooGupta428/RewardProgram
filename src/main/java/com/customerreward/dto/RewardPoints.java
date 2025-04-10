@@ -1,6 +1,5 @@
 package com.customerreward.dto;
 
-
 /**
  * Model representing reward points for a customer in a specific month.
  */

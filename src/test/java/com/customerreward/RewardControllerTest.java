@@ -22,6 +22,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import org.springframework.test.context.junit4.SpringRunner;
 
+
 /**
  * Integration tests for the RewardController class.
  */

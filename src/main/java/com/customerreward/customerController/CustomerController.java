@@ -56,7 +56,6 @@ public class CustomerController {
         }
         return ResponseEntity.ok(customerRewards);
     }
-
     private CustomerReward calculateCustomerReward(Long customerId, LocalDate start, LocalDate end) {
         Map<String, Integer> pointsMap = customerService.calculateMonthlyPoints(customerId, start, end);
 

@@ -3,7 +3,6 @@ package com.customerreward.service;
 import java.time.LocalDate;
 import java.util.Map;
 
-
 /* Service interface for customer reward operations.  */
 public interface CustomerServiceInt {
 

@@ -6,13 +6,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 import java.time.LocalDate;
 
 /**
  * Entity representing a transaction made by a customer.
  */
-
 @Entity
 public class Transaction {
 

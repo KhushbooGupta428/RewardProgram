@@ -6,7 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
- /* Entity representing customer details.*/
+/* Entity representing customer details.*/
 @Entity
 public class Customer {
 

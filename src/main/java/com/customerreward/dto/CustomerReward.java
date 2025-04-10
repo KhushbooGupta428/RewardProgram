@@ -3,7 +3,6 @@ package com.customerreward.dto;
 import java.util.List;
 
  /* Model representing reward points and total point for a customer*/
-
 public class CustomerReward {
 
     private Long customerId;
