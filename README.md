@@ -25,7 +25,11 @@ The project is structured as follows:
 ### Prerequisites
 - Java 11 or higher
 - Maven
-  ## API
-  http://localhost:8080/api/v1/rewards?startDate=2025-01-01&endDate=2025-03-31
-  http://localhost:8080/api/v1/rewards?customerId=1&startDate=2025-01-01&endDate=2025-03-31
-
+- URL: http://localhost:8080/api/v1/rewards?startDate=2025-01-01&endDate=2025-03-31
+- http://localhost:8080/api/v1/rewards?startDate=2025-01-01&endDate=2025-03-31
+Method: GET
+Parameters:
+customerId (optional): ID of the customer.
+startDate: Start date in YYYY-MM-DD format.
+endDate: End date in YYYY-MM-DD format.
+Response: List of CustomerReward objects and particular customer Object.
